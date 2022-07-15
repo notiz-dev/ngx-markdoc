@@ -64,6 +64,18 @@ export class Markdoc implements OnChanges, AfterViewInit {
   }
   @Output() tocChange = new EventEmitter<TableOfContent>();
 
+  private _frontmatter: Record<string, any> | undefined;
+  public get frontmatter(): Record<string, any> | undefined {
+    return this._frontmatter;
+  }
+  public set frontmatter(value: Record<string, any> | undefined) {
+    this._frontmatter = value;
+    if (value) {
+      this.frontmatterChange.emit(value);
+    }
+  }
+  @Output() frontmatterChange = new EventEmitter<Record<string, any>>();
+
   constructor(
     public element: ElementRef<HTMLElement>,
     private http: HttpClient
@@ -139,8 +151,11 @@ export class Markdoc implements OnChanges, AfterViewInit {
   }
 
   private loadFrontmatter(ast: Node) {
-    return ast.attributes['frontmatter']
+    const frontmatter = ast.attributes['frontmatter']
       ? yaml.load(ast.attributes['frontmatter'])
       : {};
+
+    this.frontmatter = frontmatter as Record<string, any>;
+    return frontmatter;
   }
 }
