@@ -27,6 +27,7 @@
     "@angular/compiler-cli": "^14.0.6",
     "@tailwindcss/typography": "^0.5.4",
     "autoprefixer": "^10.4.7",
+    "ng-packagr": "^14.0.0",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
     "tailwindcss": "^3.1.6",

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-markdoc": {
+    "ngx-markdoc-demo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -41,7 +41,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngx-markdoc",
+            "outputPath": "dist/ngx-markdoc-demo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -93,10 +93,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ngx-markdoc:build:production"
+              "browserTarget": "ngx-markdoc-demo:build:production"
             },
             "development": {
-              "browserTarget": "ngx-markdoc:build:development"
+              "browserTarget": "ngx-markdoc-demo:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -104,7 +104,38 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-markdoc:build"
+            "browserTarget": "ngx-markdoc-demo:build"
+          }
+        }
+      }
+    },
+    "ngx-markdoc": {
+      "projectType": "library",
+      "root": "projects/ngx-markdoc",
+      "sourceRoot": "projects/ngx-markdoc/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-markdoc/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-markdoc/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-markdoc/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-markdoc/src/test.ts",
+            "tsConfig": "projects/ngx-markdoc/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-markdoc/karma.conf.js"
           }
         }
       }
