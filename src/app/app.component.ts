@@ -1,36 +1,20 @@
 import { Component } from '@angular/core';
+import { Navigation } from './components/navigation/navigation.component';
 
 @Component({
   selector: 'app-root',
   template: `
-    <main class="max-w-lg mx-auto mt-16">
-      <prose>
-        <markdoc> # Markdoc for Angular </markdoc>
-        <markdoc>
-          {{ content }}
-        </markdoc>
-      </prose>
-
+    <main class="max-w-2xl mx-auto">
       <router-outlet></router-outlet>
     </main>
   `,
   styles: [],
 })
 export class AppComponent {
-  content = `
-  # Headers
-
-**Bold**
-
-_Italic_
-
-[Links](/docs/nodes)
-
-Lists
-- Item 1
-- Item 1
-- Item 1
-
-> Quotes  
-  `;
+  navigation: Navigation[] = [
+    {
+      title: 'Getting Started',
+      links: [{ title: 'Installation', url: '/' }],
+    },
+  ];
 }
