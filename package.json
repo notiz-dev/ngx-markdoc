@@ -9,22 +9,27 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^14.0.0",
-    "@angular/common": "^14.0.0",
-    "@angular/compiler": "^14.0.0",
-    "@angular/core": "^14.0.0",
-    "@angular/forms": "^14.0.0",
-    "@angular/platform-browser": "^14.0.0",
-    "@angular/platform-browser-dynamic": "^14.0.0",
-    "@angular/router": "^14.0.0",
-    "rxjs": "~7.5.0",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "@angular/animations": "^14.0.6",
+    "@angular/common": "^14.0.6",
+    "@angular/compiler": "^14.0.6",
+    "@angular/core": "^14.0.6",
+    "@angular/forms": "^14.0.6",
+    "@angular/platform-browser": "^14.0.6",
+    "@angular/platform-browser-dynamic": "^14.0.6",
+    "@angular/router": "^14.0.6",
+    "rxjs": "~7.5.06",
+    "tslib": "^2.4.0",
+    "zone.js": "~0.11.6"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^14.0.5",
-    "@angular/cli": "~14.0.5",
-    "@angular/compiler-cli": "^14.0.0",
-    "typescript": "~4.7.2"
+    "@angular-devkit/build-angular": "^14.0.6",
+    "@angular/cli": "~14.0.6",
+    "@angular/compiler-cli": "^14.0.6",
+    "@tailwindcss/typography": "^0.5.4",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.1.6",
+    "typescript": "~4.7.4"
   }
 }
