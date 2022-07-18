@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { map, tap } from 'rxjs';
 
 @Component({
   selector: 'app-landing',
@@ -34,9 +33,7 @@ import { map, tap } from 'rxjs';
   styles: [],
 })
 export class LandingComponent implements OnInit {
-  example$ = this.http
-    .get('assets/md/example.md', { responseType: 'text' })
-    .pipe(map((md) => md.trim()));
+  example$ = this.http.get('assets/md/example.md', { responseType: 'text' });
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {}
