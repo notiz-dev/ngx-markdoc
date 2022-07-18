@@ -1,4 +1,4 @@
-import { collectTableOfContent, TableOfContent } from './toc.markdoc';
+import { collectTableOfContent, TableOfContent } from './extensions/toc.markdoc';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {
   AfterViewInit,
@@ -18,7 +18,7 @@ import MarkdocRenderer, {
   Tag,
 } from '@markdoc/markdoc';
 import * as yaml from 'js-yaml';
-import { heading } from './heading.markdoc';
+import { heading } from './extensions/heading.markdoc';
 
 @Component({
   selector: 'markdoc, [markdoc]',

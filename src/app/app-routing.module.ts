@@ -5,9 +5,12 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./installation/installation.module').then(
-        (m) => m.InstallationModule
-      ),
+      import('./landing/landing.module').then((m) => m.LandingModule),
+    title: '@notiz/ngx-markdoc',
+  },
+  {
+    path: 'docs/:slug',
+    loadChildren: () => import('./docs/docs.module').then((m) => m.DocsModule),
   },
 ];
 
