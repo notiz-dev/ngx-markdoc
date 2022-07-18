@@ -5,15 +5,19 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-docs',
   template: `
     <logo></logo>
-    <div class="mt-12 max-w-2xl">
-      <prose>
-        <h1>{{ markdoc.frontmatter?.['title'] }}</h1>
-        <markdoc #markdoc src="assets/md/docs/{{ slug }}.md"></markdoc>
-      </prose>
+    <div class="flex flex-row">
+      <div class="mt-12 max-w-2xl">
+        <prose>
+          <h1>{{ markdoc.frontmatter?.['title'] }}</h1>
+          <markdoc #markdoc src="assets/md/docs/{{ slug }}.md"></markdoc>
+        </prose>
+      </div>
+      <toc
+        class="hidden lg:block"
+        *ngIf="markdoc.toc"
+        [toc]="markdoc.toc"
+      ></toc>
     </div>
-
-    <prose>
-    </prose>
   `,
   styles: [],
 })
