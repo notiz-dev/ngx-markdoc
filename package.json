@@ -5,7 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development"
+    "watch": "ng build --watch --configuration development",
+    "build:lib": "ng build ngx-markdoc",
+    "cp:readme": "cp README.md dist/ngx-markdoc",
+    "rocket": "npm run build:lib && npm run cp:readme && cd dist/ngx-markdoc && npm publish"
   },
   "private": true,
   "dependencies": {
