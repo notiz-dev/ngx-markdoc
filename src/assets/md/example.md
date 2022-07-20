@@ -3,6 +3,8 @@ title: Example
 description: First markdoc example
 ---
 
+![Notiz](assets/logo.svg) {% .w-24 %}
+
 ## Headers
 
 **Bold**

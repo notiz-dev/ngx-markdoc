@@ -7,6 +7,7 @@ export const image: Schema = {
     loading: {
       type: String,
       default: 'lazy',
+      matches: ['eager', 'lazy'], // TODO how to change it to eager
     },
   },
 };

@@ -1,4 +1,7 @@
-import { collectTableOfContent, TableOfContent } from './extensions/toc.markdoc';
+import {
+  collectTableOfContent,
+  TableOfContent,
+} from './extensions/toc.markdoc';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {
   AfterViewInit,
@@ -18,7 +21,7 @@ import MarkdocRenderer, {
   Tag,
 } from '@markdoc/markdoc';
 import * as yaml from 'js-yaml';
-import { heading } from './extensions/heading.markdoc';
+import { defaultConfig } from './config';
 
 @Component({
   selector: 'markdoc, [markdoc]',
@@ -146,7 +149,7 @@ export class Markdoc implements OnChanges, AfterViewInit {
     const markdoc = { ...(config?.variables?.['markdoc'] || {}), frontmatter };
     const variables = { ...(config?.variables || {}), markdoc };
 
-    const nodes = { heading, ...(config?.nodes || {}) };
+    const nodes = { ...defaultConfig.nodes, ...(config?.nodes || {}) };
     return { ...config, nodes, variables };
   }
 
