@@ -149,8 +149,11 @@ export class Markdoc implements OnChanges, AfterViewInit {
     const markdoc = { ...(config?.variables?.['markdoc'] || {}), frontmatter };
     const variables = { ...(config?.variables || {}), markdoc };
 
-    const nodes = { ...defaultConfig.nodes, ...(config?.nodes || {}) };
-    return { ...config, nodes, variables };
+    const nodes = {
+      ...defaultConfig.nodes,
+      ...(config?.nodes || {}),
+    };
+    return { ...config, tags: { ...defaultConfig.tags }, nodes, variables };
   }
 
   private loadFrontmatter(ast: Node) {
