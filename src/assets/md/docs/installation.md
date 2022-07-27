@@ -1,6 +1,6 @@
 ---
 title: Installation
-description: How to install ngx-markdoc.
+description: How to install @notiz/ngx-markdoc.
 ---
 
 Install `@notiz/ngx-markdoc` and all `peerDependencies`:
