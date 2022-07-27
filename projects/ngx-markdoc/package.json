@@ -1,6 +1,19 @@
 {
   "name": "@notiz/ngx-markdoc",
+  "description": "Markdoc component for your Angular application",
   "version": "0.1.0",
+  "keywords": [
+    "markdoc",
+    "angular",
+    "markdown"
+  ],
+  "author": "notiz",
+  "contributors": [
+    {
+      "name": "Marc Stammerjohann"
+    }
+  ],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^14.0.0",
     "@angular/core": "^14.0.0",
@@ -12,5 +25,13 @@
   },
   "dependencies": {
     "tslib": "^2.3.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/notiz-dev/ngx-markdoc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/notiz-dev/ngx-markdoc/issues"
+  },
+  "homepage": "https://github.com/notiz-dev/ngx-markdoc#readme"
 }
