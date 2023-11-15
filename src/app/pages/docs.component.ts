@@ -11,7 +11,7 @@ import { Logo } from '../components/logo.component';
   imports: [Logo, Prose, Markdoc, TocComponent],
   template: `
     <logo></logo>
-    <div class="flex flex-row">
+    <div class="lg:flex lg:flex-row">
       <div class="mt-12 max-w-2xl">
         <prose>
           <h1>{{ markdoc.frontmatter?.['title'] }}</h1>

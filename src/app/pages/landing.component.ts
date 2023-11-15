@@ -10,7 +10,7 @@ import { Hero } from '../components/hero.component';
   template: `
     <hero></hero>
 
-    <div class="grid gap-12 lg:grid-cols-2 lg:gap-8 lg:divide-x">
+    <div class="grid gap-12 grid-cols-1 lg:grid-cols-2 lg:gap-8 lg:divide-x">
       <div>
         <p class="mb-6 text-3xl font-semibold text-lime-500">Markdown file</p>
         <prose>
