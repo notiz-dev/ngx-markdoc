@@ -10,24 +10,37 @@ Set `allowSyntheticDefaultImports` to `true` in your `tsconfig.json`.
 
 ## Usage
 
-Import `Markdoc` into your component module
+Provide `HttpClient` in your `app.config.ts`
 
 ```ts
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ApplicationConfig } from '@angular/core';
+import { provideRouter } from '@angular/router';
 
-import { DocsRoutingModule } from './docs-routing.module';
-import { DocsComponent } from './docs.component';
-import { Markdoc } from '@notiz/ngx-markdoc';
+import { routes } from './app.routes';
+import { provideHttpClient } from '@angular/common/http';
 
-@NgModule({
-  declarations: [DocsComponent],
-  imports: [CommonModule, DocsRoutingModule, Markdoc],
-})
-export class DocsModule {}
+export const appConfig: ApplicationConfig = {
+  providers: [provideRouter(routes), provideHttpClient()],
+};
 ```
 
-Use the `<markdoc></markdoc>` component in your template. Provide Markdown content in one of the following ways.
+Import `Markdoc` into your component and use `<markdoc></markdoc>` in your template.
+
+```ts
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Markdoc } from '@notiz/ngx-markdoc';
+
+@Component({
+  selector: 'app-docs',
+  standalone: true,
+  imports: [Markdoc],
+  template: `
+    <markdoc #markdoc src="assets/md/docs/getting-started.md"></markdoc>
+  `,
+})
+export class DocsComponent {}
+```
 
 ### 1. Content
 

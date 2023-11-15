@@ -1,12 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TocComponent } from '../components/toc.component';
-import { Markdoc } from '../../../projects/ngx-markdoc/src/lib/markdoc.component';
+import { Markdoc } from '@notiz/ngx-markdoc';
 import { Prose } from '../components/prose.component';
 import { Logo } from '../components/logo.component';
 
 @Component({
   selector: 'app-docs',
+  standalone: true,
+  imports: [Logo, Prose, Markdoc, TocComponent],
   template: `
     <logo></logo>
     <div class="flex flex-row">
@@ -21,8 +23,6 @@ import { Logo } from '../components/logo.component';
       }
     </div>
   `,
-  standalone: true,
-  imports: [Logo, Prose, Markdoc, TocComponent],
 })
 export class DocsComponent {
   slug = inject(ActivatedRoute).snapshot.paramMap.get('slug');

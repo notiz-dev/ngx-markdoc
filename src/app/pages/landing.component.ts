@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
-import { Markdoc } from '../../../projects/ngx-markdoc/src/lib/markdoc.component';
+import { Markdoc } from '@notiz/ngx-markdoc';
 import { Prose } from '../components/prose.component';
 import { Hero } from '../components/hero.component';
 

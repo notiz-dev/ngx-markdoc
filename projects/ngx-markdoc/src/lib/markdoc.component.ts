@@ -2,7 +2,7 @@ import {
   collectTableOfContent,
   TableOfContent,
 } from './extensions/toc.markdoc';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {
   AfterViewInit,
   Component,
@@ -26,9 +26,7 @@ import { defaultConfig } from './config';
 @Component({
   selector: 'markdoc, [markdoc]',
   standalone: true,
-  imports: [HttpClientModule],
   template: ` <ng-content></ng-content>`,
-  styles: [],
 })
 export class Markdoc implements OnChanges, AfterViewInit {
   private element = inject(ElementRef<HTMLElement>);
@@ -112,10 +110,6 @@ export class Markdoc implements OnChanges, AfterViewInit {
   }
 
   private getSource(source: string) {
-    if (!this.http) {
-      throw new Error('HttpClient is required.');
-    }
-
     return this.http.get(source, { responseType: 'text' });
   }
 
