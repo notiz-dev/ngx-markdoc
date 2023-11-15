@@ -1,7 +1,7 @@
 {
   "name": "@notiz/ngx-markdoc",
   "description": "Markdoc component for your Angular application",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "keywords": [
     "markdoc",
     "angular",
