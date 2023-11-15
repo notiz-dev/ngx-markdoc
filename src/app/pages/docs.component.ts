@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TocComponent } from '../components/toc.component';
+import { NgIf } from '@angular/common';
+import { Markdoc } from '../../../projects/ngx-markdoc/src/lib/markdoc.component';
+import { Prose } from '../components/prose.component';
+import { Logo } from '../components/logo.component';
 
 @Component({
-  selector: 'app-docs',
-  template: `
+    selector: 'app-docs',
+    template: `
     <logo></logo>
     <div class="flex flex-row">
       <div class="mt-12 max-w-2xl">
@@ -19,7 +24,15 @@ import { ActivatedRoute } from '@angular/router';
       ></toc>
     </div>
   `,
-  styles: [],
+    styles: [],
+    standalone: true,
+    imports: [
+        Logo,
+        Prose,
+        Markdoc,
+        NgIf,
+        TocComponent,
+    ],
 })
 export class DocsComponent implements OnInit {
   slug = this.route.snapshot.paramMap.get('slug');

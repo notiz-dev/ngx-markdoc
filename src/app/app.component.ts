@@ -1,5 +1,6 @@
 import { Component, HostBinding } from '@angular/core';
-import { Navigation } from './components/navigation/navigation.component';
+import { Navigation } from './components/navigation.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,8 @@ import { Navigation } from './components/navigation/navigation.component';
     </footer>
   `,
   styles: [],
+  standalone: true,
+  imports: [RouterOutlet],
 })
 export class AppComponent {
   @HostBinding('class') class = 'block mx-auto max-w-7xl p-4';

@@ -1,5 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Markdoc } from '../../../projects/ngx-markdoc/src/lib/markdoc.component';
+import { Prose } from '../components/prose.component';
+import { Hero } from '../components/hero.component';
 
 @Component({
   selector: 'app-landing',
@@ -31,6 +35,8 @@ import { Component, OnInit } from '@angular/core';
     </div>
   `,
   styles: [],
+  standalone: true,
+  imports: [Hero, Prose, Markdoc, AsyncPipe],
 })
 export class LandingComponent implements OnInit {
   example$ = this.http.get('assets/md/example.md', { responseType: 'text' });
