@@ -8,12 +8,12 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  inject,
   Input,
   OnChanges,
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import MarkdocRenderer, {
   Config,
   Node,
@@ -26,11 +26,14 @@ import { defaultConfig } from './config';
 @Component({
   selector: 'markdoc, [markdoc]',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [HttpClientModule],
   template: ` <ng-content></ng-content>`,
   styles: [],
 })
 export class Markdoc implements OnChanges, AfterViewInit {
+  private element = inject(ElementRef<HTMLElement>);
+  private http = inject(HttpClient);
+
   @Input() content: string | undefined;
   @Input() src: string | undefined;
 
@@ -79,11 +82,6 @@ export class Markdoc implements OnChanges, AfterViewInit {
   }
   @Output() frontmatterChange = new EventEmitter<Record<string, any>>();
 
-  constructor(
-    public element: ElementRef<HTMLElement>,
-    private http: HttpClient
-  ) {}
-
   ngOnChanges(changes: SimpleChanges): void {
     if (this.content != undefined) {
       this.render(this.content);
@@ -126,7 +124,7 @@ export class Markdoc implements OnChanges, AfterViewInit {
 
     const configWithFrontmatter = this.configWithHeadingAndFrontmatter(
       ast,
-      this.config
+      this.config,
     );
 
     const content = MarkdocRenderer.transform(ast, configWithFrontmatter);
@@ -142,7 +140,7 @@ export class Markdoc implements OnChanges, AfterViewInit {
 
   private configWithHeadingAndFrontmatter(
     ast: Node,
-    config: Config | undefined
+    config: Config | undefined,
   ): Config {
     const frontmatter = this.loadFrontmatter(ast);
 
