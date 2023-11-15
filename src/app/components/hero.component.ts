@@ -1,14 +1,15 @@
 import { RouterModule } from '@angular/router';
-import { Component, HostBinding, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'hero',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [RouterModule],
   template: `
     <div>
-      <h1 class="text-4xl font-semibold text-gray-900">&#64;notiz/ngx-markdoc</h1>
+      <h1 class="text-4xl font-semibold text-gray-900">
+        &#64;notiz/ngx-markdoc
+      </h1>
       <p class="mt-4 text-2xl text-gray-800">
         <a
           class="text-lime-500 underline"
@@ -39,11 +40,8 @@ import { CommonModule } from '@angular/common';
       </div>
     </div>
   `,
-  styles: [],
+  host: {
+    class: 'block mt-24 mb-16',
+  },
 })
-export class Hero implements OnInit {
-  @HostBinding() class = 'block mt-24 mb-16';
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class Hero {}

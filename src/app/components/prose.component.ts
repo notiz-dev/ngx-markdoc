@@ -1,16 +1,11 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'prose',
   standalone: true,
-  imports: [CommonModule],
   template: ` <ng-content></ng-content> `,
-  styles: [],
+  host: {
+    class: 'prose prose-lime',
+  },
 })
-export class Prose implements OnInit {
-  @HostBinding() class = 'prose prose-lime';
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class Prose {}

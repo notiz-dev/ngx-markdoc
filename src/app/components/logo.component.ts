@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'logo',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [RouterModule],
   template: `
     <a routerLink="/" class="flex items-center space-x-4">
       <img
@@ -17,10 +16,5 @@ import { RouterModule } from '@angular/router';
       <h1 class="text-3xl font-extrabold">&#64;notiz/ngx-markdoc</h1>
     </a>
   `,
-  styles: [],
 })
-export class Logo implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class Logo {}
