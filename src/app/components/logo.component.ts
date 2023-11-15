@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
         alt="notiz.dev"
       />
 
-      <h1 class="text-3xl font-extrabold">@notiz/ngx-markdoc</h1>
+      <h1 class="text-3xl font-extrabold">&#64;notiz/ngx-markdoc</h1>
     </a>
   `,
   styles: [],

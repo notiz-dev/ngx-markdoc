@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, RouterModule],
   template: `
     <div>
-      <h1 class="text-4xl font-semibold text-gray-900">@notiz/ngx-markdoc</h1>
+      <h1 class="text-4xl font-semibold text-gray-900">&#64;notiz/ngx-markdoc</h1>
       <p class="mt-4 text-2xl text-gray-800">
         <a
           class="text-lime-500 underline"
