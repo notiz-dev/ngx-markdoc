@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/ngx-markdoc-demo",
+    "public": "dist/ngx-markdoc-demo/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
