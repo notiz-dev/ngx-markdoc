@@ -21,7 +21,7 @@ import MarkdocRenderer, {
   Tag,
 } from '@markdoc/markdoc';
 import * as yaml from 'js-yaml';
-import { defaultConfig } from './config';
+import { MARKDOC_CONFIG } from './provide-markdoc-options';
 
 @Component({
   selector: 'markdoc, [markdoc]',
@@ -31,11 +31,25 @@ import { defaultConfig } from './config';
 export class Markdoc implements OnChanges, AfterViewInit {
   private element = inject(ElementRef<HTMLElement>);
   private http = inject(HttpClient);
+  private _defaultConfig = inject(MARKDOC_CONFIG, { optional: true });
+
+  private get defaultConfig(): Config {
+    return this._defaultConfig ?? {};
+  }
 
   @Input() content: string | undefined;
   @Input() src: string | undefined;
 
-  @Input() config: Config | undefined;
+  private _config: Config | undefined;
+  @Input()
+  public get config(): Config | undefined {
+    return this._config;
+  }
+  public set config(value: Config | undefined) {
+    this._config = value
+      ? { ...this.defaultConfig, ...value }
+      : this.defaultConfig;
+  }
 
   private _contentNode: RenderableTreeNode | undefined;
   /**
@@ -79,6 +93,10 @@ export class Markdoc implements OnChanges, AfterViewInit {
     }
   }
   @Output() frontmatterChange = new EventEmitter<Record<string, any>>();
+
+  constructor() {
+    this.config = this.defaultConfig;
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.content != undefined) {
@@ -142,10 +160,9 @@ export class Markdoc implements OnChanges, AfterViewInit {
     const variables = { ...(config?.variables || {}), markdoc };
 
     const nodes = {
-      ...defaultConfig.nodes,
       ...(config?.nodes || {}),
     };
-    return { ...config, tags: { ...defaultConfig.tags }, nodes, variables };
+    return { ...config, tags: { ...config?.tags }, nodes, variables };
   }
 
   private loadFrontmatter(ast: Node) {
