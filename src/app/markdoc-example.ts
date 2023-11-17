@@ -4,7 +4,6 @@ export const markdocExample: Schema = {
   render: 'pre',
   attributes: {},
   transform(node, config) {
-    console.log('test');
     const attributes = node.transformAttributes(config);
     const { content, language } = node.children[0].attributes;
 
