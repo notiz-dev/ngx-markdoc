@@ -10,17 +10,17 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "allowSyntheticDefaultImports": true,
     "target": "ES2022",
     "module": "ES2022",
-    "lib": ["ES2022", "dom"],
     "useDefineForClassFields": false,
+    "lib": ["ES2022", "dom"],
     "paths": {
       "@notiz/ngx-markdoc": ["projects/ngx-markdoc/src/public-api"]
     }

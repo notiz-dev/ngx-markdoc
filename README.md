@@ -6,7 +6,7 @@ npm i @notiz/ngx-markdoc @markdoc/markdoc js-yaml
 npm i -D @types/js-yaml
 ```
 
-Set `allowSyntheticDefaultImports` to `true` in your `tsconfig.json`.
+Set `esModuleInterop` to `true` in your `tsconfig.json`.
 
 ## Usage
 
