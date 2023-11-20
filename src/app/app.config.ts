@@ -10,7 +10,6 @@ import {
   image,
   provideMarkdocOptions,
 } from '@notiz/ngx-markdoc';
-import { Config, Node, Tag } from '@markdoc/markdoc';
 import { markdocExample } from './markdoc-example';
 
 export const appConfig: ApplicationConfig = {

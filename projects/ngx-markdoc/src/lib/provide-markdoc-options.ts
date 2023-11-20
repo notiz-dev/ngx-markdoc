@@ -1,8 +1,4 @@
-import {
-  EnvironmentProviders,
-  InjectionToken,
-  makeEnvironmentProviders,
-} from '@angular/core';
+import { InjectionToken, Provider } from '@angular/core';
 import { Config } from '@markdoc/markdoc';
 import { figure, heading, image } from './extensions';
 
@@ -19,11 +15,11 @@ const defaultConfig: Config = {
 
 export function provideMarkdocOptions(
   markdocOptions?: MarkdocOptions,
-): EnvironmentProviders {
-  return makeEnvironmentProviders([
+): Provider[] {
+  return [
     {
       provide: MARKDOC_CONFIG,
       useValue: markdocOptions?.config ?? defaultConfig,
     },
-  ]);
+  ];
 }
